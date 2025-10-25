@@ -1,33 +1,33 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { Text } from 'react-native'; // ✅ add this import
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+        tabBarActiveTintColor: '#007bff',
+        tabBarInactiveTintColor: '#6c757d',
+        tabBarStyle: {
+          backgroundColor: 'white',
+          borderTopWidth: 2,
+          borderTopColor: '#dee2e6',
+        },
+      }}
+    >
       <Tabs.Screen
-        name="index"
+        name="signToText"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Sign to Text',
+          tabBarIcon: () => <Text style={{ fontSize: 20 }}>📹</Text>, // ✅ works now
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="textToSign"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Text to Sign',
+          tabBarIcon: () => <Text style={{ fontSize: 20 }}>✍️</Text>,
         }}
       />
     </Tabs>

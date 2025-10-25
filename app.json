@@ -27,6 +27,7 @@
     },
     "plugins": [
       "expo-router",
+
       [
         "expo-splash-screen",
         {
@@ -37,6 +38,13 @@
           "dark": {
             "backgroundColor": "#000000"
           }
+        }
+      ],
+
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera to capture sign language gestures."
         }
       ]
     ],
