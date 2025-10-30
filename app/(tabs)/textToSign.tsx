@@ -37,7 +37,7 @@ export default function TextToSign() {
     setAllPlayed(false);
 
     try {
-      const response = await fetch('https://python-last.vercel.app/api/videos', {
+      const response = await fetch('https://python-23-october.vercel.app/api/videos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
