@@ -1,16 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { Audio, ResizeMode, Video } from 'expo-av';
+import React, { useEffect, useRef, useState } from 'react';
 import {
-  View,
+  Alert,
+  Platform,
+  ScrollView,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-  ScrollView,
-  StyleSheet,
-  Alert,
-  Platform,
+  View,
 } from 'react-native';
-import { Video, ResizeMode } from 'expo-av';
-import { Audio } from 'expo-av';
+
 
 interface VideoItem {
   file_name: string;
@@ -279,7 +279,7 @@ export default function TextToSign() {
           textAlignVertical="top"
         />
         
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={[
             styles.micButton,
             isRecording && styles.micButtonActive
@@ -289,16 +289,16 @@ export default function TextToSign() {
           <Text style={styles.micButtonText}>
             {isRecording ? '⏹️' : '🎤'}
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
-      {isRecording && (
+      {/* {isRecording && (
         <View style={styles.recordingIndicator}>
           <Text style={styles.recordingText}>
             🔴 {Platform.OS === 'web' ? 'Listening... Speak now!' : 'Recording... Tap stop when done'}
           </Text>
         </View>
-      )}
+      )} */}
 
       <TouchableOpacity
         style={[styles.button, loading && styles.buttonDisabled]}
