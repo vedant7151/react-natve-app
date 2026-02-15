@@ -1,16 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { Audio, ResizeMode, Video } from 'expo-av';
+import React, { useEffect, useRef, useState } from 'react';
 import {
-  View,
+  Alert,
+  Platform,
+  ScrollView,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-  ScrollView,
-  StyleSheet,
-  Alert,
-  Platform,
+  View,
 } from 'react-native';
-import { Video, ResizeMode } from 'expo-av';
-import { Audio } from 'expo-av';
+
 
 interface VideoItem {
   file_name: string;
@@ -318,9 +318,7 @@ export default function TextToSign() {
 
       {videos.length > 0 && !allPlayed ? (
         <View style={styles.videoContainer}>
-          <Text style={styles.videoTitle}>
-            {videos[currentVideoIndex].file_name}
-          </Text>
+          {/* Removed: videoTitle which showed the "hello" text above the video */}
           <Video
             ref={videoRef}
             source={{ uri: videos[currentVideoIndex].url }}
@@ -330,15 +328,7 @@ export default function TextToSign() {
             shouldPlay
             onPlaybackStatusUpdate={handlePlaybackStatusUpdate}
           />
-          <Text style={styles.videoProgress}>
-            Video {currentVideoIndex + 1} of {videos.length}
-          </Text>
-        </View>
-      ) : null}
-
-      {allPlayed ? (
-        <View style={styles.successBox}>
-          <Text style={styles.successText}>✅ All videos played once</Text>
+          {/* Removed: videoProgress which showed "Video X of X" */}
         </View>
       ) : null}
     </ScrollView>
